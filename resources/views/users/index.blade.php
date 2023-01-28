@@ -8,25 +8,22 @@
     <thead class="thead-dark text-center">
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Auther</th>
-        <th scope="col">Email</th>
+        <th scope="col">Username</th>
+        <th scope="col">Post's count</th>
       </tr>
     </thead>
     <tbody class="text-center">
         @php
             $i = 1;
         @endphp
-        @forelse($posts as $post)
+        @forelse($users as $user)
             <tr>
             <th scope="row">{{ $i++ }}</th>
             <td>
-                {{ $post->title }}
+                {{ $user->name }}
             </td>
-            <td>{{ $post->user->name }}</td>
-            <td>
-                {{ $post->user->email  }}
-            </td>
+            {{-- <td>{{ $user->posts->count()}}</td> --}}
+            <td>{{ $user->posts_count}}</td>
             </tr>
         @empty
             <tr>
