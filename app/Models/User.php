@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\comment;
 use App\Models\Posts;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -25,6 +26,9 @@ class User extends Authenticatable
     ];
     public function posts(){
         return $this->hasMany(Posts::class);
+    }
+    public function comments(){
+        return $this->hasMany(comment::class);
     }
     /**
      * The attributes that should be hidden for serialization.

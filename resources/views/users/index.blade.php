@@ -10,6 +10,7 @@
         <th scope="col">#</th>
         <th scope="col">Username</th>
         <th scope="col">Post's count</th>
+        <th scope="col">comment's count</th>
       </tr>
     </thead>
     <tbody class="text-center">
@@ -24,6 +25,10 @@
             </td>
             {{-- <td>{{ $user->posts->count()}}</td> --}}
             <td>{{ $user->posts_count}}</td>
+            <td>
+                {{-- {{ $user->comments->count() }} --}}
+                {{ $user->comments_count}}
+            </td>
             </tr>
         @empty
             <tr>
