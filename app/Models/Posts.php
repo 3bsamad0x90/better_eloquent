@@ -14,7 +14,7 @@ class Posts extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
-    public function rating(){
-        return $this->hasMany(Rating::class);
+    public function ratings(){
+        return $this->hasMany(Rating::class, 'post_id');
     }
 }

@@ -11,6 +11,10 @@
         <th scope="col">Title</th>
         <th scope="col">Auther</th>
         <th scope="col">Email</th>
+        <th scope="col">Rating</th>
+        <th scope="col">AVG</th>
+        <th scope="col">Max Rating</th>
+        <th scope="col">Min Rating</th>
       </tr>
     </thead>
     <tbody class="text-center">
@@ -26,6 +30,19 @@
             <td>{{ $post->user->name }}</td>
             <td>
                 {{ $post->user->email  }}
+            </td>
+            <td>
+                {{-- {{ $post->ratings->count() }} --}}
+                {{ $post->ratings_count }}
+            </td>
+            <td>
+                {{ number_format($post->ratings_avg_rating, 2) }}
+            </td>
+            <td>
+                {{ ($post->ratings_max_rating) ?? 'No Rating' }}
+            </td>
+            <td>
+                {{ ($post->ratings_min_rating) ?? 'No Rating' }}
             </td>
             </tr>
         @empty
