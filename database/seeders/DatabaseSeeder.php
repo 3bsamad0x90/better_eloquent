@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Database\Seeders\RatingSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PostSeeder::class,
             CommentSeeder::class,
+            RatingSeeder::class,
         ]);
     }
 }
