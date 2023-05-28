@@ -21,3 +21,4 @@ Route::get('/', function () {
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/hoeme', [HomeController::class, 'index'])->name('home.index');

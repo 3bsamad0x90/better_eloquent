@@ -15,11 +15,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        // $this->call([
+        //     UserSeeder::class,
+        //     PostSeeder::class,
+        //     CommentSeeder::class,
+        //     RatingSeeder::class,
+        // ]);
         $this->call([
+            OperatingSystemSeeder::class,
+            DeviceSeeder::class,
             UserSeeder::class,
-            PostSeeder::class,
-            CommentSeeder::class,
-            RatingSeeder::class,
         ]);
+        for($i=1 ; $i <=50; $i++){
+            $this->call(BookingSeeder::class);
+        }
     }
 }
