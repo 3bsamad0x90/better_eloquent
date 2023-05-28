@@ -10,7 +10,7 @@ class HomeController extends Controller
     public function index(){
         $times = Booking::query()
         ->whereHas('device.operating_system', function($query){
-            $query->where('operating_systems.name', 'ios');
+            $query->where('operating_systems.name', 'a');
         })
         // ->join('devices', 'boohings.devices.id', '=', 'devices.id')
         // ->join('operating_systems', 'devices.operating_system_id', '=', 'operating_systems.id')
@@ -19,9 +19,8 @@ class HomeController extends Controller
         ->groupBy('bookings.from')
         ->groupBy('bookings.to')
         ->orderBy('bookings_count', 'desc')
-        ->take(5)
+        ->take(10)
         ->get();
-
         return view('home.index', compact('times'));
     }
 }
