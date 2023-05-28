@@ -9,16 +9,16 @@ class HomeController extends Controller
 {
     public function index(){
         $times = Booking::query()
-        ->whereHas('device.operatingSystem', function($query){
-            $query->where('operating_systems.name', 'IOS');
+        ->whereHas('device.operating_system', function($query){
+            $query->where('operating_systems.name', 'ios');
         })
-        ->join('devices', 'boohings.devices.id', '=', 'devices.id')
-        ->join('operating_systems', 'devices.operating_system_id', '=', 'operating_systems.id')
-        ->where('operating_systems.name', 'ios')
-        ->selectRaw('books.form, books.to, count(books.id) as books_count')
-        ->groupBy('books.form')
-        ->groupBy('books.to')
-        ->orderBy('books_count', 'desc')
+        // ->join('devices', 'boohings.devices.id', '=', 'devices.id')
+        // ->join('operating_systems', 'devices.operating_system_id', '=', 'operating_systems.id')
+        // ->where('operating_systems.name', 'ios')
+        ->selectRaw('bookings.from, bookings.to, count(bookings.id) as bookings_count')
+        ->groupBy('bookings.from')
+        ->groupBy('bookings.to')
+        ->orderBy('bookings_count', 'desc')
         ->take(5)
         ->get();
 

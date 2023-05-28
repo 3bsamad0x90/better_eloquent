@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Device extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'operating_system_id',
+    ];
+    public function operating_system()
+    {
+        return $this->belongsTo(OperatingSystem::class);
+    }
 }
